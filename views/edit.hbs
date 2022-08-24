@@ -1,0 +1,25 @@
+
+<div class="container">
+   
+   <div class="contents">
+        <div id="back">
+            <a href="/" class="backBtn">Back</a>
+        </div>
+        <h1>Edit task</h1>
+        <div class="message clear"></div>
+        <div id="task-to-edit">
+            <p id="taskName">Task : {{taskObj.taskName}}</p>
+            <p id="completionStatus">Completed : {{taskObj.completed}}</p>
+        </div>
+        <div class="edit-form">
+            <form >
+                <input type="text" name="inputField" value="{{taskObj.taskName}}"  class="input-field" placeholder="edit task"/>
+                Completed? <input type="checkbox" value="{{taskObj.completed}}">
+                <input type="submit" value="edit" name="edit" id="edit"/>
+            </form> 
+        </div>
+       
+
+    </div>
+</div>
+<script src="/js/edit.js" type="module" ></script>
