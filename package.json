@@ -23,7 +23,8 @@
     "nodemon": "^2.0.19"
   },
   "scripts": {
-    "start": "nodemon app.js"
+    // "start": "nodemon app.js"
+    "start": "app.js"
   },
   "author": "tumelo",
   "license": "ISC",
