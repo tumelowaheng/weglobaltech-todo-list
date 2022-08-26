@@ -39,8 +39,9 @@ app.use((req,res)=>{ res.send("Error page");})
 //     })
 // })
 // .catch(err=>console.log(err))
+// `mongodb+srv://${tumelowaheng}:${process.env.PASSWORD}@todolist.szrrhnb.mongodb.net/?retryWrites=true&w=majority`
 
-dbConnect(`mongodb+srv://${process.env.USERNAME}:${process.env.PASSWORD}@todolist.szrrhnb.mongodb.net/?retryWrites=true&w=majority`)
+dbConnect("mongodb+srv://tumelowaheng:WAHeng5102@todolist.szrrhnb.mongodb.net/?retryWrites=true&w=majority")
 .then(()=>{
     const port=process.env.PORT || 5000;
     app.listen(port,()=>{
