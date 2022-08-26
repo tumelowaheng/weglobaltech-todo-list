@@ -31,7 +31,7 @@ const authorize=(req,res,next)=>{
                                 //produce another accesstoken
                                 const accessToken=getAccessToken(loggedUser);
                                 //u need to send the new accesstoken to client,then pass to the next middleware
-                                res.cookie("accessToken",accessToken,{secure:false,httpOnly:true,path:"/",SameSite:"lax",maxAge:(5*60*1000)});
+                                res.cookie("accessToken",accessToken,{secure:true,httpOnly:true,path:"/",SameSite:"none",maxAge:(5*60*1000)});
                                 req.user=loggedUser; //this loggeduser is the old one,get a new one from accesstoken creation
                                 next(); 
                             }else{

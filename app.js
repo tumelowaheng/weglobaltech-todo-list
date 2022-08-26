@@ -13,19 +13,22 @@ app.use(cookie());
 //cors
 app.use(cors(
     {
-    origin:"http://localhost:3000",
-    // origin:["https://weglobaltech-todolist.netlify.app"],
+    origin:["http://localhost:3000","https://weglobaltech-todo-list.netlify.app"],
     method:["GET","POST","DELETE","PUT","PATCH"],
     credentials:true,
 }
 )); 
 app.use(express.json()); 
 app.use(express.urlencoded({extended:true}));
-// app.use(express.cookieParser()); 
+ 
+//a landing page for the app
+app.get("/",(req,res)=>{res.send("welcome to the app")})
+
 /*****************************route****************************/
 app.use("/api/v1/task",apiTaskRoutes);
 app.use("/api/v1/user",apiUserRoutes);
 app.use((req,res)=>{ res.send("Error page");}) 
+
 
 dbConnect("mongodb://localhost/todo") //returns a promise
 .then(()=>{
@@ -37,7 +40,7 @@ dbConnect("mongodb://localhost/todo") //returns a promise
 })
 .catch(err=>console.log(err))
 
-// dbConnect("mongodb+srv://tumelowaheng:WAHeng5102@todolist.szrrhnb.mongodb.net/?retryWrites=true&w=majority")
+// dbConnect("mongodb+srv://${process.env.USERNAME}:${process.env.PASSWORD}@todolist.szrrhnb.mongodb.net/?retryWrites=true&w=majority")
 // .then(()=>{
 //     const port=5000;
 //     app.listen(port,()=>{
