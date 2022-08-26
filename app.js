@@ -13,7 +13,7 @@ app.use(cookie());
 //cors
 app.use(cors(
     {
-    origin:["http://localhost:3000","https://weglobaltech-todo-list.netlify.app"],
+    origin:["http://localhost:3000","https://weglobaltech-todolist.netlify.app"],
     method:["GET","POST","DELETE","PUT","PATCH"],
     credentials:true,
 }
