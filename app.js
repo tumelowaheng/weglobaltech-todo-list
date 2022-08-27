@@ -15,7 +15,7 @@ app.use(cors(
     {
     origin:["http://localhost:3000","https://weglobaltech-todolist.netlify.app"],
     method:["GET","POST","DELETE","PUT","PATCH"],
-    credentials:true,
+    credentials:true
 }
 )); 
 app.use(express.json()); 
@@ -32,7 +32,7 @@ app.use((req,res)=>{ res.send("Error page");})
 
 // dbConnect("mongodb://localhost/todo") //returns a promise
 // .then(()=>{
-//     // const port=process.env.PORT;
+
 //     const port=process.env.PORT || 5000;
 //     app.listen(port,()=>{
 //         console.log(`listening on port ${port}`);

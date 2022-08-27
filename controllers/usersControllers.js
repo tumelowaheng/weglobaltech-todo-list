@@ -84,7 +84,7 @@ const signInUser=async (req,res)=>{
          console.log(loggedUser);
          //this can be outsourced to utilityfunctions 
          const accessToken=jwt.sign(loggedUser,process.env.ACCESS_TOKEN_SECRET,{
-            expiresIn:"10s"
+            expiresIn:"5min"
          });
          const refreshToken=jwt.sign(loggedUser,process.env.REFRESH_TOKEN_SECRET,{
             expiresIn:"1y"
@@ -94,8 +94,9 @@ const signInUser=async (req,res)=>{
          token.save()
          .then(()=>{
             //send the token in cookie to the front end 
-            res.cookie("accessToken",accessToken,{secure:true,httpOnly:true,path:"/",SameSite:"None",maxAge:(5*60*60*1000)});
-            res.cookie("refreshToken",refreshToken,{secure:true,httpOnly:true,path:"/",SameSite:"None",maxAge:(5*60*60*1000)});
+            res.cookie("accessToken",accessToken,{secure:true,httpOnly:true,SameSite:"lax",maxAge:(5*60*60*1000)});
+            res.cookie("refreshToken",refreshToken,{secure:true,httpOnly:true
+               ,SameSite:"lax",maxAge:(1*365*24*60*60*1000)});
             res.status(200).json({accessToken,refreshToken});
             
          })
