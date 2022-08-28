@@ -22,7 +22,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended:true}));
  
 //a landing page for the app
-app.get("/",(req,res)=>{res.send("welcome to the app buddy")})
+app.get("/",(req,res)=>{res.send("welcome to the app buddy!!!")})
 
 /*****************************route****************************/
 app.use("/api/v1/task",apiTaskRoutes);
