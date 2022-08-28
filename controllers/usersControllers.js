@@ -94,8 +94,10 @@ const signInUser=async (req,res)=>{
             //send the token in cookie to the front end 
             // res.cookie("accessToken",accessToken,{secure:true,httpOnly:true,domain:"localhost",path:"/",SameSite:"none",maxAge:(5*60*60*1000)});
             // res.cookie("refreshToken",refreshToken,{secure:true,httpOnly:true,domain:"localhost",path:"/",SameSite:"none",maxAge:(1*365*24*60*60*1000)});
-            res.cookie("accessToken",accessToken,{secure:true,httpOnly:true,domain:"https://weglobaltech-todo-list.herokuapp.com",path:"/",SameSite:"none",maxAge:(5*60*60*1000)});
-            res.cookie("refreshToken",refreshToken,{secure:true,httpOnly:true,domain:"https://weglobaltech-todo-list.herokuapp.com",path:"/",SameSite:"none",maxAge:(1*365*24*60*60*1000)});
+            // res.cookie("accessToken",accessToken,{secure:true,httpOnly:true,domain:"https://weglobaltech-todo-list.herokuapp.com",path:"/",SameSite:"none",maxAge:(5*60*60*1000)});
+            // res.cookie("refreshToken",refreshToken,{secure:true,httpOnly:true,domain:"https://weglobaltech-todo-list.herokuapp.com",path:"/",SameSite:"none",maxAge:(1*365*24*60*60*1000)});
+            res.cookie("accessToken",accessToken,{secure:true,httpOnly:true,domain:"https://weglobaltech-todolist.netlify.app",path:"/",SameSite:"none",maxAge:(5*60*60*1000)});
+            res.cookie("refreshToken",refreshToken,{secure:true,httpOnly:true,domain:"https://weglobaltech-todolist.netlify.app",path:"/",SameSite:"none",maxAge:(1*365*24*60*60*1000)});
             res.status(200).json({accessToken,refreshToken});
             
          })
