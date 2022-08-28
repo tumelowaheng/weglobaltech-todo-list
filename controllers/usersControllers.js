@@ -7,7 +7,6 @@ const jwt=require("jsonwebtoken");
 const {validationResult}=require("express-validator");
 
 
-
 const addUser=(req,res)=>{
    //validation errors
    const errorsArr=validationResult(req);
@@ -81,7 +80,6 @@ const signInUser=async (req,res)=>{
          //create a jwt here since the user is available an its right credentials
          const loggedUser={id:foundUser._id};
          //create tokens
-         console.log(loggedUser);
          //this can be outsourced to utilityfunctions 
          const accessToken=jwt.sign(loggedUser,process.env.ACCESS_TOKEN_SECRET,{
             expiresIn:"5min"
@@ -94,8 +92,10 @@ const signInUser=async (req,res)=>{
          token.save()
          .then(()=>{
             //send the token in cookie to the front end 
-            res.cookie("accessToken",accessToken,{secure:true,httpOnly:true,SameSite:"none",maxAge:(5*60*60*1000)});
-            res.cookie("refreshToken",refreshToken,{secure:true,httpOnly:true,SameSite:"none",maxAge:(1*365*24*60*60*1000)});
+            // res.cookie("accessToken",accessToken,{secure:true,httpOnly:true,domain:"localhost",path:"/",SameSite:"none",maxAge:(5*60*60*1000)});
+            // res.cookie("refreshToken",refreshToken,{secure:true,httpOnly:true,domain:"localhost",path:"/",SameSite:"none",maxAge:(1*365*24*60*60*1000)});
+            res.cookie("accessToken",accessToken,{secure:true,httpOnly:true,domain:"https://weglobaltech-todo-list.herokuapp.com",path:"/",SameSite:"none",maxAge:(5*60*60*1000)});
+            res.cookie("refreshToken",refreshToken,{secure:true,httpOnly:true,domain:"https://weglobaltech-todo-list.herokuapp.com",path:"/",SameSite:"none",maxAge:(1*365*24*60*60*1000)});
             res.status(200).json({accessToken,refreshToken});
             
          })

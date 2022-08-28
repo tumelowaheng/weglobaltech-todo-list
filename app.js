@@ -39,7 +39,7 @@ app.use((req,res)=>{ res.send("Error page");})
 //     })
 // })
 // .catch(err=>console.log(err))
-// `mongodb+srv://${tumelowaheng}:${process.env.PASSWORD}@todolist.szrrhnb.mongodb.net/?retryWrites=true&w=majority`
+
 
 dbConnect(`mongodb+srv://${process.env.USERNAME}:${process.env.PASSWORD}@todolist.szrrhnb.mongodb.net/?retryWrites=true&w=majority`)
 .then(()=>{
