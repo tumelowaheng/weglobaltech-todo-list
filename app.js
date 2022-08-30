@@ -41,12 +41,3 @@ dbConnect("mongodb://localhost/todo") //returns a promise
 .catch(err=>console.log(err))
 
 
-// dbConnect(`mongodb+srv://${process.env.USERNAME}:${process.env.PASSWORD}@todolist.szrrhnb.mongodb.net/?retryWrites=true&w=majority`)
-// .then(()=>{
-//     const port=process.env.PORT || 5000;
-//     app.listen(port,()=>{
-//         console.log(`listening on port ${port}`);
-//     })
-
-// })
-// .catch(err=>console.log(err))
